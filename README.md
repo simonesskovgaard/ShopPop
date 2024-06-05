@@ -24,7 +24,7 @@ psql -U shop -d shoppop -h localhost -p 5433 -f /path/to/file
 
 6. Upload fashion data to database using command:
 
-\copy Product(pk,item,brand,category,price,size) FROM /path/to/fp.csv DELIMITER ',' CSV HEADER;
+\copy Product(item,brand,category,price,size) FROM /path/to/fp.csv DELIMITER ',' CSV HEADER;
 
 7. run app using command 'python app.py' 
 
