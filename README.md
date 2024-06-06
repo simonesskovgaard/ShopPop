@@ -18,7 +18,7 @@ GRANT ALL PRIVILEGES ON DATABASE shoppop TO shop;
 4. Create environment and install requirements.txt
 pip install -r requirements.txt
 
-5. Upload users.sql and product.sql to database using command:
+5. Upload users.sql and product.sql to database using command:(upload Users FIRST)
 
 psql -U shop -d shoppop -h localhost -p 5433 -f /path/to/file
 
