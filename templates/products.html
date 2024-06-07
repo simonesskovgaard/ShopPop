@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+    <h2>Our Products</h2>
+    <form action="{{ url_for('search') }}" method="GET">
+        <input type="text" name="query" placeholder="Search for a brand" value="{{ request.args.get('query', '') }}">
+        <button type="submit">Search</button>
+    </form>
+    {% if request.args.get('query') %}
+        <h3>Search Results for "{{ request.args.get('query') }}":</h3>
+    {% endif %}
+    <ul>
+        {% for product in products %}
+            <li>
+                <h3>{{ product.item }} - {{ product.brand }}</h3>
+                <p>Category: {{ product.category }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <p>Size: {{ product.size }}</p>
+
+                <p>Product ID: {{ product.pk }}</p>
+
+                <a href="{{ url_for('add_to_cart', pk=product.pk) }}" class="button">Add to Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
